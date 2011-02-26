@@ -1,5 +1,7 @@
 user/385264?with_photo_id=41214445;user/385264?with_photo_id=46235330;user/385264?with_photo_id=45092111;user/385264?with_photo_id=43884023;user/385264?with_photo_id=42888526586;user/385264?with_photo_id=42564292
 
+--- SAMPLE INPUTS AND RESULTS-----------
+
 1.user/385264?with_photo_id=41214445;user/385264?with_photo_id=46235330;user/385264?with_photo_id=45092111;user/385264?with_photo_id=43884023;user/385264?with_photo_id=46235330
 
 shows no error as there is none
