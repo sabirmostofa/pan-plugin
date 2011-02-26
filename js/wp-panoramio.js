@@ -1,5 +1,8 @@
 
+
  jQuery(window).load(function($){
+	 
+	 if(jQuery.browser.mozilla){
 
 		var t='';
 		jQuery('img.panoramio-wapi-loaded-img').each(function(){
@@ -19,7 +22,9 @@
 			 'nonce':WpPanoramioSettings.panoramio_nonce,
 			 'urls':t	 
 			}		
-		});	
+		});
+		
+	}	
 
 			
 })
