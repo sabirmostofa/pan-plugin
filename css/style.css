@@ -1,0 +1,23 @@
+#div_attr_ex {
+position: relative;
+margin: 0 0 0px 0px;
+width: 419px;
+border:3px solid #101010;
+background-color: #101010;
+}
+#div_attr_ex_list {
+width: 419px;
+background-color: #101010;
+}
+#div_attr_ex .panoramio-wapi-images {
+background-color: #101010;
+}
+
+#div_attr_ex .panoramio-wapi-tos{
+background-color: #101010 !important;
+}
+
+.panoramio-wapi-empty-img-div{
+display:none;
+
+}
