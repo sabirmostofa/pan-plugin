@@ -58,8 +58,54 @@ add_action( 'wp_ajax_myajax-submit', array($this,'myajax_submit' ));
 add_action('wp_print_scripts' , array($this,'wp_panoramio_scripts'));
 add_action('wp_print_styles',array($this,'add_css_script'));
 add_action('template_redirect',array($this,'set_post_id'));
+add_action('save_post',array($this,'check_and_delete'));
 
 	}
+	
+	
+	
+	//checking if corrected
+	function check_and_delete($id){
+				
+		global $wpdb;
+		
+		if($data = get_post_meta($id,'panoramio_text')):
+		$data=$data[0];	
+		$data=trim(trim($data),';');	
+		$data = explode(';',$data);
+		
+			$AllPhotoIds=array();
+		
+		foreach($data as $value):		
+		 preg_match_all('/\d+/',$value,$holder);
+		 $photo_id=$holder[0][1];
+		 $AllPhotoIds[]=$photo_id;
+		 endforeach;
+		 
+		 $result = $wpdb->get_row("SELECT photo_id FROM wp_panoramio WHERE post_id = '$id'", ARRAY_N);
+		 
+		 foreach($result as $check){
+			 if(!in_array($check,$AllPhotoIds)){
+				 
+				 $wpdb->query("DELETE FROM wp_panoramio WHERE photo_id = '$check' and post_id = '$id'");
+				 				 
+				 }
+			 
+			 
+			 }		
+
+	
+
+
+		
+		
+		else:
+	$wpdb->query("DELETE FROM wp_panoramio WHERE post_id = '$id'");
+		
+		endif;
+		
+		}
+	
 	
 
 	
